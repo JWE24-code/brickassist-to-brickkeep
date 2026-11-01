@@ -1,0 +1,5 @@
+# Exports hold personal inventory data.
+brickkeep-import*.json
+*-not-imported.json
+__pycache__/
+*.pyc
