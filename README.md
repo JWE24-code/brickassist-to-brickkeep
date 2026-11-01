@@ -1,6 +1,6 @@
 # brickassist-to-brickkeep
 
-Export your own LEGO parts inventory from [BrickAssist](https://brickassist.com) into a file you can import straight into Brickkeep.
+Export your own LEGO parts inventory from [BrickAssist](https://brickassist.com) into a file you can import straight into Brickkeep, an inventory app for LEGO drawer sorting systems.
 
 It logs in with a code BrickAssist emails you, downloads your parts, and writes `brickkeep-import.json`.
 
@@ -56,7 +56,7 @@ Importing sets the size of every box named in the file. If you have already set 
 ## Privacy
 
 - The tool talks only to `api.brickassist.com` and sends nothing anywhere else. It refuses redirects to other addresses.
-- After login it only reads. It can't change your BrickAssist account.
+- After login it only reads, and never changes anything in your BrickAssist account.
 - It never asks for a password. Your email, the code and the session token are never saved or printed, and the token is forgotten when the tool exits.
 - **The output files contain your inventory, so don't share them.** They are set to owner-only permissions on Linux and macOS. On Windows they get the permissions of the folder they are in.
 
