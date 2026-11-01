@@ -73,6 +73,7 @@ class FakeApi:
         }
         self.requests = []
         self.bad_code_status = 400
+        self.login_answer = None
         fake = self
 
         class Handler(BaseHTTPRequestHandler):
@@ -94,7 +95,7 @@ class FakeApi:
                 if self.path == "/v1/auth/email_checker":
                     self._send(200, {"operation": True, "message": "sent"})
                 elif self.path == "/v1/auth/login" and body.get("code_email_check") == GOOD_CODE:
-                    self._send(200, {
+                    self._send(200, fake.login_answer or {
                         "access_token": TOKEN, "refresh_token": "fake-refresh",
                         "token_type": "bearer", "minimum_client_version": 1,
                     })

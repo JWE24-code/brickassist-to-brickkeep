@@ -10,26 +10,26 @@ It logs in with a code BrickAssist emails you, downloads your parts, and writes 
 
 ## Usage
 
-You need Python 3.9 or newer and nothing else.
-
-Linux and macOS:
+Linux and macOS, with Python 3.9 or newer:
 
 ```sh
 curl -O https://raw.githubusercontent.com/JWE24-code/brickassist-to-brickkeep/main/brickassist_to_brickkeep.py && python3 brickassist_to_brickkeep.py
 ```
 
-Windows (PowerShell):
+Windows, with nothing to install. In PowerShell:
 
 ```powershell
-curl.exe -O https://raw.githubusercontent.com/JWE24-code/brickassist-to-brickkeep/main/brickassist_to_brickkeep.py; python brickassist_to_brickkeep.py
+curl.exe -O https://raw.githubusercontent.com/JWE24-code/brickassist-to-brickkeep/main/brickassist_to_brickkeep.ps1; powershell -ExecutionPolicy Bypass -File .\brickassist_to_brickkeep.ps1
 ```
+
+`-ExecutionPolicy Bypass` applies to this one run, because Windows blocks scripts by default. The PowerShell version does the same as the Python version and writes the same file. It also runs with PowerShell 7 on Linux and macOS. It is slower than Python: a very large collection of 20,000 stocks can take a few minutes.
 
 It asks for your BrickAssist email, then for the code they email you.
 
-| Option | Meaning |
-| --- | --- |
-| `--email ADDRESS` | Skip the email question. The address may end up in your shell history. |
-| `--output PATH` | Where to write the file. Default: `brickkeep-import.json` in the current folder. |
+| Python | PowerShell | Meaning |
+| --- | --- | --- |
+| `--email ADDRESS` | `-Email ADDRESS` | Skip the email question. The address may end up in your shell history. |
+| `--output PATH` | `-Output PATH` | Where to write the file. Default: `brickkeep-import.json` in the current folder. |
 
 ## Importing into Brickkeep
 
@@ -63,6 +63,8 @@ Importing sets the size of every box named in the file. If you have already set 
 ## Development
 
 Tests use only the standard library and a local fake API with invented data. They never contact BrickAssist.
+
+The same tests run against the PowerShell version, once for each of `powershell` and `pwsh` found on the machine, and compare both versions' files byte for byte.
 
 ```sh
 python3 -m unittest
