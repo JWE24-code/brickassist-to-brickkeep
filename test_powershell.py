@@ -142,7 +142,8 @@ class ScriptFile(unittest.TestCase):
     @unittest.skipUnless(os.environ.get("CI"), "only CI must have PowerShell")
     def test_ci_really_runs_powershell(self):
         self.assertTrue(SHELLS)
-        self.assertEqual("powershell" in SHELLS, os.name == "nt")
+        if os.name == "nt":
+            self.assertEqual(SHELLS, ["powershell", "pwsh"])
 
 
 for shell in SHELLS:
