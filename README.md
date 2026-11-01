@@ -1,6 +1,6 @@
 # brickassist-to-brickkeep
 
-Export your own LEGO parts inventory from [BrickAssist](https://brickassist.com) into a file you can import straight into Brickkeep, an inventory app for LEGO drawer sorting systems.
+Export your own LEGO® parts inventory from [BrickAssist](https://brickassist.com) into a file you can import straight into Brickkeep, an inventory app for storing LEGO® bricks in drawers.
 
 It logs in with a code BrickAssist emails you, downloads your parts, and writes `brickkeep-import.json`.
 
@@ -74,4 +74,4 @@ python3 -m unittest
 
 [MIT](LICENSE).
 
-LEGO is a trademark of the LEGO Group, which does not sponsor or endorse this project.
+LEGO® is a trademark of the LEGO Group of companies, which does not sponsor, authorize or endorse this project.
